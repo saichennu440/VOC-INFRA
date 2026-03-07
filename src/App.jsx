@@ -4,6 +4,28 @@ import { Menu, X, ChevronRight, ArrowRight, Mail, Phone, MapPin, Zap, Database, 
 /* ─── STATIC DATA ────────────────────────────────────────────── */
 const NAV_LINKS = ["Home","About","Solutions","Technology","Industries","Case Studies","Leadership","Contact"];
 
+const FOOTER_LINKS = {
+  "AI & ML Systems":          "Solutions",
+  "Data Engineering":         "Solutions",
+  "Cognitive Platforms":      "Solutions",
+  "Infrastructure Automation":"Solutions",
+  "Cybernetic Systems":       "Solutions",
+  "About VOC Infra":          "about",
+  "Leadership":               "leadership",
+  "Industries":               "industries",
+  "Case Studies":             "case-studies",
+  "Partners":                 "partners",
+  "Technology Stack":         "Technology",
+  "Book Consultation":        "contact",
+  "Phone: +91-9318 61 9318":   "contact",
+  "Location: Hyderabad,Telangana":"contact"
+};
+
+const scrollTo = (id) => {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+};
+
 const SOLUTIONS = [
   { icon:Brain,    color:"#00b4d8", title:"AI & Machine Learning Systems",           desc:"Intelligent automation and predictive systems that transform enterprise decision-making.",         items:["Predictive analytics platforms","Intelligent workflow automation","AI-based decision engines","Computer vision & NLP solutions"] },
   { icon:Database, color:"#9333ea", title:"Data Engineering & Intelligent Pipelines", desc:"End-to-end data infrastructure built for real-time intelligence and enterprise scale.",           items:["Data lake architecture","Real-time data pipelines","Enterprise data orchestration","Data governance frameworks"] },
@@ -38,68 +60,74 @@ const CASES = [
 
 const PARTNERS = ["AWS","Microsoft Azure","Google Cloud","Databricks","Snowflake"];
 
+
 const TEAM = [
   {
-    initials:"JG", accent:"#0077a8",
-    gradient:"linear-gradient(135deg,rgba(0,119,168,0.18),rgba(147,51,234,0.18))",
-    border:"rgba(0,119,168,0.35)",
-    name:"Jagadish Gadireddy",
-    role:"Director – Enterprise Systems & Infrastructure",
-    badges:["22+ Years","250+ Team","Fortune 500"],
-    bio:"Over 22 years of global IT services leadership with expertise in enterprise infrastructure, large-scale delivery management, and mission-critical IT operations.",
-    highlights:["Led programs for Microsoft, Wells Fargo & MasterCard","Managed global delivery teams of 250+ professionals","Implemented Agile, ITIL & enterprise service frameworks","Delivered Fortune 500 mission-critical programs"],
+    photo: "/Jagadish_Gadireddy.png",
+    initials: "JG", accent: "#0077a8",
+    gradient: "linear-gradient(135deg,rgba(0,119,168,0.18),rgba(147,51,234,0.18))",
+    border: "rgba(0,119,168,0.35)",
+    name: "Jagadish Gadireddy",
+    role: "Founder & Managing Director",
+    badges: ["22+ Years", "IT & EdTech", "Enterpreneur"],
+    bio: "Entrepreneur and business leader with interests spanning Information Technology, Education, and Wellness sectors. Based in Hyderabad, he builds ventures that combine technology, knowledge, and holistic well-being to create meaningful impact.",
+    highlights: [
+      "Founded and led organizations in digital technology, education services, and wellness platforms",
+      "Strategic approach to building sustainable, technology-enabled businesses",
+      "Passionate about fostering innovation and collaborative ecosystems",
+      "Drives long-term growth by integrating technology, learning, and wellness",
+    ],
   },
   {
-    initials:"AR", accent:"#9333ea",
-    gradient:"linear-gradient(135deg,rgba(147,51,234,0.18),rgba(99,102,241,0.15))",
-    border:"rgba(147,51,234,0.35)",
-    name:"[Leader Name]",
-    role:"VP – AI & Machine Learning",
-    badges:["15+ Years","AI Strategy","Research Lead"],
-    bio:"Placeholder — replace with actual bio. Brings deep expertise in AI research, large-scale ML platform engineering, and enterprise-grade model deployment across regulated industries.",
-    highlights:["[Led AI platform for a Fortune 100 company]","[Managed team of 80+ ML engineers]","[Published research in top-tier AI conferences]","[Holds 5+ AI/ML patents]"],
+    photo: "/Suresh_Giriraj.png",
+    initials: "SG", accent: "#9333ea",
+    gradient: "linear-gradient(135deg,rgba(147,51,234,0.18),rgba(99,102,241,0.15))",
+    border: "rgba(147,51,234,0.35)",
+    name: "Suresh Giriraj",
+    role: "Chief Innovation Officer",
+    badges: ["30+ Years", "Corporate Comms", "AgriTech"],
+    bio: "Engineering graduate from Anna University Chennai with 30+ years in the service industry. Expert in corporate communications, branding, and technology innovation — from enterprise back-office operations to cutting-edge controlled environment agriculture.",
+    highlights: [
+      "Formalised communications and branding for BITS Pilani, ITC Agrotech, and EPE Process Controls",
+      "Incorporated EquiNordic Systems and managed Lufthansa Cargo's back-office operations in India",
+      "Designed and built an automated hydroponic farm with remote IoT-based management",
+      "Successfully built and deployed University Management Software at BITS Hyderabad",
+    ],
   },
   {
-    initials:"SK", accent:"#0891b2",
-    gradient:"linear-gradient(135deg,rgba(8,145,178,0.18),rgba(6,182,212,0.12))",
-    border:"rgba(8,145,178,0.35)",
-    name:"[Leader Name]",
-    role:"Head of Cloud Architecture",
-    badges:["18+ Years","Multi-Cloud","DevOps Expert"],
-    bio:"Placeholder — replace with actual bio. Extensive experience designing resilient multi-cloud infrastructures for global enterprises, with a focus on automation, cost optimisation and zero-downtime deployments.",
-    highlights:["[Designed cloud infra for 20+ enterprises]","[AWS & Azure certified architect]","[Reduced cloud spend by 35% avg. per client]","[Led 50+ cloud migration programmes]"],
+    photo: "/Krishna_Kanth.png",
+    initials: "TK", accent: "#0891b2",
+    gradient: "linear-gradient(135deg,rgba(8,145,178,0.18),rgba(6,182,212,0.12))",
+    border: "rgba(8,145,178,0.35)",
+    name: "T R Krishna Kanth",
+    role: "Director – Strategy & Growth",
+    badges: ["10+ Years", "Digital Growth", "AI & DeepTech"],
+    bio: "Technology entrepreneur and business strategist with over 10 years of experience across HealthTech, FinTech, EdTech, Manufacturing, and Enterprise Technology. Expert in go-to-market strategy, digital transformation, and building scalable growth ecosystems.",
+    highlights: [
+      "Worked with global organizations including Wipro and Salesforce on strategic partnerships and enterprise solutions",
+      "Built growth-driven digital ecosystems for startups and enterprises using full-funnel marketing systems",
+      "Engaged in developing AI, DeepTech, and enterprise automation solutions",
+      "Designs scalable business models with data-driven marketing and sales frameworks",
+    ],
   },
   {
-    initials:"PM", accent:"#6366f1",
-    gradient:"linear-gradient(135deg,rgba(99,102,241,0.18),rgba(139,92,246,0.15))",
-    border:"rgba(99,102,241,0.35)",
-    name:"[Leader Name]",
-    role:"Director – Data Engineering",
-    badges:["16+ Years","Data Platforms","Analytics"],
-    bio:"Placeholder — replace with actual bio. Specialises in building large-scale data platforms, real-time streaming pipelines, and enterprise data governance frameworks that power intelligent decision-making.",
-    highlights:["[Built data lake for a global bank]","[Delivered real-time pipelines processing 10B+ events/day]","[Led data governance for 3 Fortune 500 firms]","[Expert in Snowflake, Databricks & Spark]"],
-  },
-  {
-    initials:"NR", accent:"#0284c7",
-    gradient:"linear-gradient(135deg,rgba(2,132,199,0.18),rgba(0,180,216,0.15))",
-    border:"rgba(2,132,199,0.35)",
-    name:"[Leader Name]",
-    role:"Head of Cybersecurity & Compliance",
-    badges:["14+ Years","CISO Level","Zero Trust"],
-    bio:"Placeholder — replace with actual bio. Leads enterprise cybersecurity strategy with deep experience in zero-trust architecture, threat intelligence, compliance frameworks and incident response programs.",
-    highlights:["[Designed zero-trust model for a major bank]","[Led ISO 27001 & SOC 2 certification programs]","[Reduced breach risk by 60% at past orgs]","[Expert in NIST, GDPR & HIPAA compliance]"],
-  },
-  {
-    initials:"VK", accent:"#7c3aed",
-    gradient:"linear-gradient(135deg,rgba(124,58,237,0.18),rgba(147,51,234,0.12))",
-    border:"rgba(124,58,237,0.35)",
-    name:"[Leader Name]",
-    role:"Head of Enterprise Delivery",
-    badges:["20+ Years","Delivery Lead","Agile Coach"],
-    bio:"Placeholder — replace with actual bio. A seasoned delivery executive with two decades of leading complex, multi-geography enterprise programmes, specialising in Agile transformation and large-scale IT service management.",
-    highlights:["[Delivered $500M+ enterprise transformation]","[Managed cross-geo teams of 300+ members]","[Certified SAFe & ITIL Master practitioner]","[Led PMOs for 10+ Fortune 500 clients]"],
+    photo: "/Manoj_kumar_jain.png",
+    initials: "MJ", accent: "#6366f1",
+    gradient: "linear-gradient(135deg,rgba(99,102,241,0.18),rgba(139,92,246,0.15))",
+    border: "rgba(99,102,241,0.35)",
+    name: "Manoj Kumar Jain",
+    role: "Chief Product & Technology Architect",
+    badges: ["35+ Years", "ERP & SQL", "ISO Expert"],
+    bio: "Technologist and entrepreneur with over 35 years in enterprise software design, ERP architecture, and business process automation. Combines deep expertise in database systems and enterprise applications with ISO management systems consulting.",
+    highlights: [
+      "Developed advanced software licensing and data protection technologies used in VFX and digital font environments",
+      "ISO 9001 auditor and consultant across ISO 9001, 14001, 27001, and 50001 standards",
+      "Designed training and examination modules for multiple ISO management systems",
+      "Practicing valuer and trained insurance professional with expertise in asset valuation and financial risk",
+    ],
   },
 ];
+
 
 /* ─── THEME PALETTES ─────────────────────────────────────────── */
 const DARK = {
@@ -282,9 +310,9 @@ export default function App() {
       }}>
         <div style={{ maxWidth:1280, margin:"0 auto", padding:"0 28px", height:68, display:"flex", alignItems:"center", justifyContent:"space-between" }}>
           <button onClick={() => scrollTo("home")} style={{ background:"none", border:"none", cursor:"pointer", textAlign:"left" }}>
-            <div style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:21, fontWeight:700, color:T.head, letterSpacing:"-.02em", transition:"color .4s" }}>
-              VOC<span style={{ color:T.accent }}>Infra</span>
-            </div>
+           <div style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:21, fontWeight:700, color:T.head, letterSpacing:"-.02em", transition:"color .4s" }}>
+  <img src="/voc-logo-transparent.png" alt="VOC Infra Logo" style={{ width:180, height:"auto", verticalAlign:"middle" }}/>
+</div>
             <div style={{ fontSize:9.5, color:T.muted, letterSpacing:".1em", marginTop:1, transition:"color .4s" }}>VECTORIZED OPERATIONS & CYBERNETICS</div>
           </button>
 
@@ -564,7 +592,7 @@ export default function App() {
             </Reveal>
           </div>
 
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:24 }} className="team-grid">
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:24 }} className="team-grid">
             {TEAM.map((p, i) => (
               <Reveal key={p.initials} delay={80 + i * 90}>
                 <div className="card" style={{ background:T.leaderBg, border:`1px solid ${T.borderAccent}`, borderRadius:18, padding:32, height:"100%", position:"relative", overflow:"hidden" }}>
@@ -574,9 +602,9 @@ export default function App() {
                   {/* avatar row */}
                   <div style={{ display:"flex", alignItems:"flex-start", gap:18, marginBottom:20 }}>
                     <div style={{ flexShrink:0 }}>
-                      <div style={{ width:72, height:72, borderRadius:"50%", background:p.gradient, border:`2px solid ${p.border}`, display:"flex", alignItems:"center", justifyContent:"center", marginBottom:10 }}>
-                        <span style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:22, fontWeight:700, color:p.accent }}>{p.initials}</span>
-                      </div>
+                      <div style={{ width:72, height:72, borderRadius:"50%", border:`2px solid ${p.border}`, overflow:"hidden", marginBottom:10, background:p.gradient }}>
+                      <img src={p.photo} alt={p.name} style={{ width:"100%", height:"100%", objectFit:"cover", objectPosition:"top" }} />
+                    </div>
                       <div style={{ display:"flex", flexDirection:"column", gap:5 }}>
                         {p.badges.map(b => (
                           <div key={b} style={{ padding:"3px 9px", background:`${p.accent}12`, border:`1px solid ${p.accent}28`, borderRadius:100, fontSize:9.5, color:p.accent, fontWeight:700, textAlign:"center", whiteSpace:"nowrap", letterSpacing:".04em" }}>{b}</div>
@@ -587,7 +615,7 @@ export default function App() {
                     <div style={{ flex:1, minWidth:0 }}>
                       <div style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", gap:8, marginBottom:4 }}>
                         <h3 style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:17, fontWeight:700, color:T.head, lineHeight:1.3 }}>{p.name}</h3>
-                        <Linkedin size={15} style={{ color:p.accent, flexShrink:0, marginTop:2, opacity:0.7 }}/>
+                        {/* <Linkedin size={15} style={{ color:p.accent, flexShrink:0, marginTop:2, opacity:0.7 }}/> */}
                       </div>
                       <p style={{ fontSize:12, color:p.accent, fontWeight:600, letterSpacing:".04em", marginBottom:10, lineHeight:1.4 }}>{p.role}</p>
                       <p style={{ fontSize:13, color:T.sub, lineHeight:1.7 }}>{p.bio}</p>
@@ -643,7 +671,7 @@ export default function App() {
             </p>
             <div style={{ display:"flex", flexWrap:"wrap", gap:14, justifyContent:"center" }}>
               <button className="btn-p" onClick={() => scrollTo("contact")}>Book an Enterprise AI Consultation <ArrowRight size={17}/></button>
-              <button className="btn-s" onClick={() => scrollTo("contact")}>Contact Our Solutions Team</button>
+              {/* <button className="btn-s" onClick={() => scrollTo("contact")}>Contact Our Solutions Team</button> */}
             </div>
           </Reveal>
         </div>
@@ -664,7 +692,7 @@ export default function App() {
             <Reveal delay={90}>
               <div style={{ background:T.contactLeft, border:`1px solid ${T.contactLeftBorder}`, borderRadius:15, padding:34, height:"100%", transition:"background .4s, border-color .4s" }}>
                 <h3 style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:19, fontWeight:600, color:T.head, marginBottom:26, transition:"color .4s" }}>Contact Information</h3>
-                {[[Mail,"Email","info@vocinfratech.com"],[Phone,"Phone","+91 XXXXX XXXXX"],[MapPin,"Location","Hyderabad, India"]].map(([Icon,label,val]) => (
+                {[[Mail,"Email","info@vocinfratech.com"],[Phone,"Phone",<a href="tel:+919318619318">+91-9318 61 9318</a>],[MapPin,"Location","Hyderabad, India"]].map(([Icon,label,val,Link]) => (
                   <div key={label} style={{ display:"flex", gap:14, alignItems:"flex-start", marginBottom:22 }}>
                     <div style={{ width:38, height:38, borderRadius:9, background:T.whyBg, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, transition:"background .4s" }}>
                       <Icon size={17} style={{ color:T.accent, transition:"color .4s" }}/>
@@ -710,20 +738,25 @@ export default function App() {
         <div style={{ maxWidth:1280, margin:"0 auto" }}>
           <div className="foot-g" style={{ display:"grid", gridTemplateColumns:"2fr 1fr 1fr 1fr", gap:44, marginBottom:44 }}>
             <div>
-              <div style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:21, fontWeight:700, color:"#ffffff", marginBottom:4 }}>VOC<span style={{ color:T.accent }}>Infra</span></div>
-              <div style={{ fontSize:9.5, color:"#64748b", letterSpacing:".1em", marginBottom:14 }}>VECTORIZED OPERATIONS & CYBERNETICS</div>
+           <div style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:21, fontWeight:700, color:T.head, letterSpacing:"-.02em", transition:"color .4s" }}>
+  <img src="/voc-logo-transparent.png" alt="VOC Infra Logo" style={{ width:180, height:"auto", verticalAlign:"middle" }}/>
+</div>              <div style={{ fontSize:9.5, color:"#64748b", letterSpacing:".1em", marginBottom:14 }}>VECTORIZED OPERATIONS & CYBERNETICS</div>
               <p style={{ fontSize:13.5, color:"#64748b", lineHeight:1.75, maxWidth:260 }}>Enterprise AI, Intelligent Infrastructure, and Cognitive Systems for the modern enterprise.</p>
             </div>
             {[["Solutions",["AI & ML Systems","Data Engineering","Cognitive Platforms","Infrastructure Automation","Cybernetic Systems"]],
               ["Company",["About VOC Infra","Leadership","Industries","Case Studies","Partners"]],
-              ["Resources",["Technology Stack","Insights","Careers","Contact","Book Consultation"]]].map(([h,links]) => (
+              ["Resources",["Technology Stack","Book Consultation",<a href="tel:+919318619318">Phone: +91-9318 61 9318</a>, "Location: Hyderabad,Telangana"]]].map(([h,links]) => (
               <div key={h}>
                 <h4 style={{ fontFamily:"'Space Grotesk',sans-serif", fontSize:11.5, fontWeight:700, color:"#94a3b8", textTransform:"uppercase", letterSpacing:".1em", marginBottom:18 }}>{h}</h4>
                 <ul style={{ listStyle:"none", display:"flex", flexDirection:"column", gap:10 }}>
                   {links.map(l => (
                     <li key={l}>
-                      <button style={{ background:"none", border:"none", cursor:"pointer", color:"#64748b", fontSize:13.5, transition:"color .2s", padding:0 }}
-                        onMouseEnter={e => e.target.style.color="#94a3b8"} onMouseLeave={e => e.target.style.color="#64748b"}>
+                      <button
+                        style={{ background:"none", border:"none", cursor:"pointer", color:"#64748b", fontSize:13.5, transition:"color .2s", padding:0 }}
+                        onMouseEnter={e => e.target.style.color="#94a3b8"}
+                        onMouseLeave={e => e.target.style.color="#64748b"}
+                        onClick={() => scrollTo(FOOTER_LINKS[l])}
+                      >
                         {l}
                       </button>
                     </li>
@@ -733,8 +766,8 @@ export default function App() {
             ))}
           </div>
           <div style={{ borderTop:"1px solid rgba(255,255,255,0.06)", paddingTop:24, display:"flex", justifyContent:"space-between", flexWrap:"wrap", gap:10 }}>
-            <p style={{ fontSize:12.5, color:"#637691" }}>© 2025 VOC Infra — Vectorized Operations & Cybernetics. All rights reserved.</p>
-            <p style={{ fontSize:12.5, color:"#637691" }}>Hyderabad, India · info@vocinfratech.com</p>
+            <p style={{ fontSize:12.5, color:"#637691" }}>© 2026 VOC Infra — Vectorized Operations & Cybernetics. All rights reserved.</p>
+            <p style={{ fontSize:12.5, color:"#637691" }}>Hyderabad, India · <span><a href ="mailto:info@vocinfratech.com" style={{ color:"inherit", textDecoration:"none" }}> info@vocinfratech.com </a></span></p>
           </div>
         </div>
       </footer>
