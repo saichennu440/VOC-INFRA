@@ -123,7 +123,7 @@ const ORBIT_NODES = [
 ];
 
 const STATS = [
-  { end:22, suffix:"+", label:"Years of Leadership",  color:"#0099c6" },
+  { end:30, suffix:"+", label:"Years of Leadership",  color:"#0099c6" },
   { end:40, suffix:"%", label:"Avg. Efficiency Gain", color:"#7c3aed" },
   { end:98, suffix:"%", label:"Client Satisfaction",  color:"#0891b2" },
   { end:60, suffix:"%", label:"Faster Operations",    color:"#6366f1" },
@@ -134,7 +134,7 @@ const T = {
   bg0:"#f4f7ff", bg1:"#eaeffa", bg2:"#ffffff",
   foot:"#0c1524",
   border:"rgba(0,0,0,0.07)", borderAccent:"rgba(0,120,190,0.18)",
-  text:"#1e293b", head:"#0a1628", sub:"#475569", muted:"#94a3b8", label:"#64748b",
+  text:"#1e293b", head:"#0a1628", sub:"#475569", muted:"#475569", label:"#64748b",
   navBg:"rgba(244,247,255,0.96)", navBorder:"rgba(0,100,180,0.1)",
   inputBg:"#f8faff", inputBorder:"rgba(0,0,0,0.1)", inputText:"#0f172a",
   cardHover:"#eef2ff", partnerBg:"#ffffff", partnerColor:"#64748b",
@@ -508,13 +508,13 @@ export default function App(){
     )}
   </header>
 
-  {/* ════ HERO ════ */}
+{/* ════ HERO ════ */}
   <section id="home" className="dot-bg" style={{minHeight:"100vh",display:"flex",alignItems:"center",paddingTop:68,position:"relative",overflow:"hidden"}}>
     {/* background orbs */}
     <div className="orb1" style={{position:"absolute",top:"8%",right:"4%",width:560,height:560,borderRadius:"50%",background:`radial-gradient(circle,${T.orbCyan} 0%,transparent 68%)`,pointerEvents:"none"}}/>
     <div className="orb2" style={{position:"absolute",bottom:"8%",left:"2%",width:460,height:460,borderRadius:"50%",background:`radial-gradient(circle,${T.orbPurple} 0%,transparent 68%)`,pointerEvents:"none"}}/>
 
-    <div style={{maxWidth:1280,margin:"0 auto",padding:"50px 28px 80px",width:"100%",display:"grid",gridTemplateColumns:"1fr 1fr",gap:32,alignItems:"center",position:"relative"}}>
+    <div style={{maxWidth:1280,margin:"0 auto",padding:"50px 28px 80px",width:"100%",display:"grid",gridTemplateColumns:"1fr 1fr",gap:32,alignItems:"flex-start",position:"relative"}}>
 
       {/* LEFT — copy */}
       <div>
@@ -527,9 +527,10 @@ export default function App(){
 
         <Reveal delay={90}>
           <h1 style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:"clamp(40px,5.5vw,72px)",fontWeight:800,lineHeight:1.04,letterSpacing:"-.03em",color:T.head,marginBottom:26}}>
-            AI-Powered Enterprise<br/>
-            <span className="shimmer-t">Automation &amp;</span><br/>
-            Intelligent Infrastructure
+            AI-Powered
+            Enterprise<br/>
+            <span className="shimmer-t">Automation </span><br/>
+           
           </h1>
         </Reveal>
 
@@ -550,8 +551,8 @@ export default function App(){
         </Reveal>
 
         <Reveal delay={340}>
-          <div style={{display:"flex",flexWrap:"wrap",gap:40}}>
-            {[["22+","Years Leadership"],["250+","Global Professionals"],["Fortune 500","Clients Served"],["40%+","Avg. Efficiency Gain"]].map(([n,l])=>(
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr", gap:40}}>
+            {[["30+","Years Leadership"],["250+","Global Professionals"],["Fortune 500","Clients Served"],["40%+","Avg. Efficiency Gain"]].map(([n,l])=>(
               <div key={l}>
                 <div style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:30,fontWeight:700,color:T.accent,lineHeight:1}}>{n}</div>
                 <div style={{fontSize:12,color:T.muted,marginTop:4}}>{l}</div>
@@ -562,7 +563,7 @@ export default function App(){
       </div>
 
       {/* RIGHT — animated orbital visual */}
-      <div className="hero-visual-wrap" style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+      <div className="hero-visual-wrap" style={{display:"flex",justifyContent:"center",alignItems:"flex-start",marginTop:40}}>
         <HeroVisual/>
       </div>
     </div>
@@ -721,38 +722,38 @@ export default function App(){
     </div>
   </section>
 
-  {/* ════ TECHNOLOGY ════ */}
-  <section id="technology" style={{padding:"116px 28px",background:T.bg1}}>
-    <div style={{maxWidth:1280,margin:"0 auto"}}>
-      <div style={{textAlign:"center",marginBottom:68}}>
-        <Reveal><SL>Technology Stack</SL></Reveal>
-        <Reveal delay={70}>
-          <h2 style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:"clamp(28px,3.8vw,50px)",fontWeight:700,color:T.head,letterSpacing:"-.025em"}}>
-            Built on <span >Best-in-Class</span> Technology
-          </h2>
-        </Reveal>
-      </div>
-      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(288px,1fr))",gap:18}}>
-        {TECH.map((t,i)=>(
-          <Reveal key={t.cat} delay={i*75}>
-            <div className="card" style={{background:T.bg2,border:`1px solid ${T.border}`,borderRadius:13,padding:26,height:"100%"}}>
-              <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:18}}>
-                <div style={{width:8,height:8,borderRadius:"50%",background:t.color,boxShadow:`0 0 10px ${t.color}`}}/>
-                <span style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:13.5,fontWeight:600,color:T.sub}}>{t.cat}</span>
-              </div>
-              <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
-                {t.items.map(item=>(
-                  <span key={item} style={{padding:"5px 13px",background:`${t.color}10`,border:`1px solid ${t.color}28`,borderRadius:100,fontSize:12.5,color:t.color,fontWeight:500}}>{item}</span>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
+{/* ════ TECHNOLOGY ════ */}
+<section id="technology" style={{padding:"116px 28px",background:T.bg1}}>
+  <div style={{maxWidth:1280,margin:"0 auto"}}>
+    <div style={{textAlign:"center",marginBottom:68}}>
+      <Reveal><SL>Technology Stack</SL></Reveal>
+      <Reveal delay={70}>
+        <h2 style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:"clamp(28px,3.8vw,50px)",fontWeight:700,color:T.head,letterSpacing:"-.025em"}}>
+          Built on <span>Best-in-Class</span> Technology
+        </h2>
+      </Reveal>
     </div>
-  </section>
+    <div className="three-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:18}}>
+      {TECH.map((t,i)=>(
+        <Reveal key={t.cat} delay={i*75}>
+          <div className="card" style={{background:T.bg2,border:`1px solid ${T.border}`,borderRadius:13,padding:26,height:"100%"}}>
+            <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:18}}>
+              <div style={{width:8,height:8,borderRadius:"50%",background:t.color,boxShadow:`0 0 10px ${t.color}`}}/>
+              <span style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:13.5,fontWeight:600,color:T.sub}}>{t.cat}</span>
+            </div>
+            <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
+              {t.items.map(item=>(
+                <span key={item} style={{padding:"5px 13px",background:`${t.color}10`,border:`1px solid ${t.color}28`,borderRadius:100,fontSize:12.5,color:t.color,fontWeight:500}}>{item}</span>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      ))}
+    </div>
+  </div>
+</section>
 
-  {/* ════ INDUSTRIES ════ */}
+{/* ════ INDUSTRIES ════ */}
   <section id="industries" className="dot-bg" style={{padding:"116px 28px"}}>
     <div style={{maxWidth:1280,margin:"0 auto"}}>
 
@@ -775,7 +776,7 @@ export default function App(){
           <Reveal><SL>Industries We Serve</SL></Reveal>
           <Reveal delay={70}>
             <h2 style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:"clamp(28px,3.8vw,50px)",fontWeight:700,color:T.head,letterSpacing:"-.025em"}}>
-              Cross-Industry <span >Expertise</span>
+              Cross-Industry <span>Expertise</span>
             </h2>
             <Div/>
           </Reveal>
@@ -786,7 +787,7 @@ export default function App(){
           </Reveal>
         </div>
       </div>
-      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(270px,1fr))",gap:18}}>
+      <div className="three-col" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:18}}>
         {INDUSTRIES.map((ind,i)=>(
           <Reveal key={ind.name} delay={i*80}>
             <div className="card" style={{background:T.bg2,border:`1px solid ${T.border}`,borderRadius:13,padding:28,display:"flex",gap:18,alignItems:"flex-start",height:"100%"}}>
@@ -1035,7 +1036,7 @@ export default function App(){
           ["Resources",["Technology Stack","Book Consultation"]],
         ].map(([h,links])=>(
           <div key={h}>
-            <h4 style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:11.5,fontWeight:700,color:"#94a3b8",textTransform:"uppercase",letterSpacing:".1em",marginBottom:18}}>{h}</h4>
+            <h4 style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:11.5,fontWeight:700,color:"#475569",textTransform:"uppercase",letterSpacing:".1em",marginBottom:18}}>{h}</h4>
             <ul style={{listStyle:"none",display:"flex",flexDirection:"column",gap:10}}>
               {links.map(l=>(
                 <li key={l}><span style={{fontSize:13.5,color:"#64748b"}}>{l}</span></li>
