@@ -246,7 +246,7 @@ function MarqueeRow({items,reverse=false,speed=38}){
 
 /* ── Hero orbital tech visual ── */
 function HeroVisual(){
-  const W=500, H=520, CX=250, CY=260;
+  const W=500, H=500, CX=250, CY=260;
   const RADII=[220,165,110];
   return(
     <div style={{position:"relative",width:W,height:H,margin:"0 auto",flexShrink:0}}>
@@ -485,9 +485,9 @@ export default function App(){
     <div style={{maxWidth:1280,margin:"0 auto",padding:"0 28px",height:68,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
       <button onClick={()=>scrollTo("home")} style={{background:"none",border:"none",cursor:"pointer",textAlign:"left"}}>
         <div style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:21,fontWeight:700,color:T.head,letterSpacing:"-.02em"}}>
-          <img src="/voc-logo-transparent.png" alt="VOC Infra Logo" style={{width:200,height:"auto",verticalAlign:"middle"}}/>
+          <img src="/voc_logo.png" alt="VOC Infra Logo" style={{width:240,height:37,verticalAlign:"middle"}}/>
         </div>
-        <div style={{fontSize:9.5,color:T.muted,letterSpacing:".1em",marginTop:1}}>VECTORIZED OPERATIONS & CYBERNETICS</div>
+        {/* <div style={{fontSize:9.5,color:T.muted,letterSpacing:".1em",marginTop:1}}>VECTORIZED OPERATIONS & CYBERNETICS</div> */}
       </button>
 
       <div className="desk-nav" style={{display:"flex",gap:26,alignItems:"center"}}>
@@ -977,7 +977,7 @@ export default function App(){
         <Reveal delay={90}>
           <div style={{background:T.contactLeft,border:`1px solid ${T.contactLeftBorder}`,borderRadius:15,padding:34,height:"100%"}}>
             <h3 style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:19,fontWeight:600,color:T.head,marginBottom:26}}>Contact Information</h3>
-            {[[Mail,"Email","info@vocinfratech.com"],[Phone,"Phone",<a href="tel:+919318619318" style={{color:"inherit",textDecoration:"none"}}>+91-9318 61 9318</a>],[MapPin,"Location","Hyderabad, India"]].map(([Icon,label,val])=>(
+            {[[Mail,"Email","info@vocinfra.com"],[Phone,"Phone",<a href="tel:+919318619318" style={{color:"inherit",textDecoration:"none"}}>+91-9318 61 9318</a>],[MapPin,"Location","Hyderabad, India"]].map(([Icon,label,val])=>(
               <div key={label} style={{display:"flex",gap:14,alignItems:"flex-start",marginBottom:22}}>
                 <div style={{width:38,height:38,borderRadius:9,background:T.whyBg,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
                   <Icon size={17} style={{color:T.accent}}/>
@@ -1024,9 +1024,9 @@ export default function App(){
       <div className="foot-g" style={{display:"grid",gridTemplateColumns:"2fr 1fr 1fr 1fr",gap:44,marginBottom:44}}>
         <div>
           <div style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:21,fontWeight:700,letterSpacing:"-.02em"}}>
-            <img src="/voc-logo-transparent.png" alt="VOC Infra Logo" style={{width:200,height:"auto",verticalAlign:"middle",filter:"brightness(0) invert(1)"}}/>
+            <img src="/voc_logo.png" alt="VOC Infra Logo" style={{width:200,height:35,verticalAlign:"middle",filter:"brightness(0) invert(1)"}}/>
           </div>
-          <div style={{fontSize:9.5,color:"#64748b",letterSpacing:".1em",marginBottom:14,marginTop:4}}>VECTORIZED OPERATIONS & CYBERNETICS</div>
+          {/* <div style={{fontSize:9.5,color:"#64748b",letterSpacing:".1em",marginBottom:14,marginTop:4}}>VECTORIZED OPERATIONS & CYBERNETICS</div> */}
           <p style={{fontSize:13.5,color:"#64748b",lineHeight:1.75,maxWidth:260}}>Enterprise AI, Intelligent Infrastructure, and Cognitive Systems for the modern enterprise.</p>
         </div>
         {[
@@ -1046,7 +1046,7 @@ export default function App(){
       </div>
       <div style={{borderTop:"1px solid rgba(255,255,255,0.06)",paddingTop:24,display:"flex",justifyContent:"space-between",flexWrap:"wrap",gap:10}}>
         <p style={{fontSize:12.5,color:"#637691"}}>© 2026 VOC Infra — Vectorized Operations & Cybernetics. All rights reserved.</p>
-        <p style={{fontSize:12.5,color:"#637691"}}>Hyderabad, India · <a href="mailto:info@vocinfratech.com" style={{color:"inherit",textDecoration:"none"}}>info@vocinfratech.com</a></p>
+        <p style={{fontSize:12.5,color:"#637691"}}>Hyderabad, India · <a href="mailto:info@vocinfra.com" style={{color:"inherit",textDecoration:"none"}}>info@vocinfra.com</a></p>
       </div>
     </div>
   </footer>
