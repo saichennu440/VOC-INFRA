@@ -485,7 +485,7 @@ export default function App(){
     <div style={{maxWidth:1280,margin:"0 auto",padding:"0 28px",height:68,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
       <button onClick={()=>scrollTo("home")} style={{background:"none",border:"none",cursor:"pointer",textAlign:"left"}}>
         <div style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:21,fontWeight:700,color:T.head,letterSpacing:"-.02em"}}>
-          <img src="/voc_logo.png" alt="VOC Infra Logo" style={{width:240,height:37,verticalAlign:"middle"}}/>
+          <img src="/voc_logo.png" alt="VOC Infra Logo" style={{width:200,height:27,verticalAlign:"middle"}}/>
         </div>
         {/* <div style={{fontSize:9.5,color:T.muted,letterSpacing:".1em",marginTop:1}}>VECTORIZED OPERATIONS & CYBERNETICS</div> */}
       </button>
@@ -1065,7 +1065,7 @@ export default function App(){
     <div className="foot-g">
       <div>
         <div style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:21,fontWeight:700,letterSpacing:"-.02em"}}>
-          <img src="/voc_logo.png" alt="VOC Infra Logo" style={{width:200,height:35,verticalAlign:"middle",filter:"brightness(0) invert(1)"}}/>
+          <img src="/voc_logo.png" alt="VOC Infra Logo" style={{width:200,height:27,verticalAlign:"middle",filter:"brightness(0) invert(1)", marginBottom: 10 }}/>
         </div>
         <p style={{fontSize:13.5,color:"#64748b",lineHeight:1.75,maxWidth:260}}>Enterprise AI, Intelligent Infrastructure, and Cognitive Systems for the modern enterprise.</p>
       </div>
