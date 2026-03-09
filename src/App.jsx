@@ -509,65 +509,87 @@ export default function App(){
   </header>
 
 {/* ════ HERO ════ */}
-  <section id="home" className="dot-bg" style={{minHeight:"100vh",display:"flex",alignItems:"center",paddingTop:68,position:"relative",overflow:"hidden"}}>
-    {/* background orbs */}
-    <div className="orb1" style={{position:"absolute",top:"8%",right:"4%",width:560,height:560,borderRadius:"50%",background:`radial-gradient(circle,${T.orbCyan} 0%,transparent 68%)`,pointerEvents:"none"}}/>
-    <div className="orb2" style={{position:"absolute",bottom:"8%",left:"2%",width:460,height:460,borderRadius:"50%",background:`radial-gradient(circle,${T.orbPurple} 0%,transparent 68%)`,pointerEvents:"none"}}/>
+<style>{`
+  .hero-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 50px 28px 80px;
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: flex-start;
+    position: relative;
+  }
+  @media (max-width: 768px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-visual-wrap {
+      display: none !important;
+    }
+  }
+`}</style>
 
-    <div style={{maxWidth:1280,margin:"0 auto",padding:"50px 28px 80px",width:"100%",display:"grid",gridTemplateColumns:"1fr 1fr",gap:32,alignItems:"flex-start",position:"relative"}}>
+<section id="home" className="dot-bg" style={{minHeight:"100vh",display:"flex",alignItems:"center",paddingTop:68,position:"relative",overflow:"hidden",boxSizing:"border-box",width:"100%"}}>
+  {/* background orbs */}
+  <div className="orb1" style={{position:"absolute",top:"8%",right:"4%",width:"min(560px,80vw)",height:"min(560px,80vw)",borderRadius:"50%",background:`radial-gradient(circle,${T.orbCyan} 0%,transparent 68%)`,pointerEvents:"none"}}/>
+  <div className="orb2" style={{position:"absolute",bottom:"8%",left:"2%",width:"min(460px,70vw)",height:"min(460px,70vw)",borderRadius:"50%",background:`radial-gradient(circle,${T.orbPurple} 0%,transparent 68%)`,pointerEvents:"none"}}/>
 
-      {/* LEFT — copy */}
-      <div>
-        <Reveal>
-          <div style={{display:"inline-flex",alignItems:"center",gap:10,padding:"7px 16px",background:T.badgeBg,border:`1px solid ${T.badgeBorder}`,borderRadius:100,marginBottom:28}}>
-            <div className="pulse-d" style={{width:7,height:7,borderRadius:"50%",background:T.accent,flexShrink:0}}/>
-            <span style={{fontSize:11.5,fontWeight:700,color:T.accent,letterSpacing:".12em",textTransform:"uppercase"}}>AI-First Enterprise Technology Company</span>
-          </div>
-        </Reveal>
+  <div className="hero-grid">
 
-        <Reveal delay={90}>
-          <h1 style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:"clamp(40px,5.5vw,72px)",fontWeight:800,lineHeight:1.04,letterSpacing:"-.03em",color:T.head,marginBottom:26}}>
-            AI-Powered
-            Enterprise<br/>
-            <span className="shimmer-t">Automation </span><br/>
-           
-          </h1>
-        </Reveal>
+    {/* LEFT — copy */}
+    <div>
+      <Reveal>
+        <div style={{display:"inline-flex",alignItems:"center",gap:10,padding:"7px 16px",background:T.badgeBg,border:`1px solid ${T.badgeBorder}`,borderRadius:100,marginBottom:28}}>
+          <div className="pulse-d" style={{width:7,height:7,borderRadius:"50%",background:T.accent,flexShrink:0}}/>
+          <span style={{fontSize:11.5,fontWeight:700,color:T.accent,letterSpacing:".12em",textTransform:"uppercase"}}>AI-First Enterprise Technology Company</span>
+        </div>
+      </Reveal>
 
-        <Reveal delay={180}>
-          <p style={{fontSize:18,color:T.sub,lineHeight:1.75,maxWidth:580,marginBottom:12}}>
-            VOC Infra helps enterprises transform operations using Artificial Intelligence, Machine Learning, Data Engineering, and Cybernetic Systems.
-          </p>
-          <p style={{fontSize:15,color:T.muted,lineHeight:1.75,maxWidth:560,marginBottom:42}}>
-            We design intelligent enterprise platforms integrating automation, predictive analytics, and self-optimising infrastructure — enabling organisations to build autonomous digital ecosystems.
-          </p>
-        </Reveal>
+      <Reveal delay={90}>
+        <h1 style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:"clamp(40px,5.5vw,72px)",fontWeight:800,lineHeight:1.04,letterSpacing:"-.03em",color:T.head,marginBottom:26}}>
+          AI-Powered
+          Enterprise<br/>
+          <span className="shimmer-t">Automation </span><br/>
+        </h1>
+      </Reveal>
 
-        <Reveal delay={260}>
-          <div style={{display:"flex",flexWrap:"wrap",gap:14,marginBottom:56}}>
-            <button className="btn-p" onClick={()=>scrollTo("contact")}>Schedule a Strategy Call <ArrowRight size={17}/></button>
-            <button className="btn-s" onClick={()=>scrollTo("solutions")}>Explore Solutions <ChevronRight size={17}/></button>
-          </div>
-        </Reveal>
+      <Reveal delay={180}>
+        <p style={{fontSize:18,color:T.sub,lineHeight:1.75,maxWidth:580,marginBottom:12}}>
+          VOC Infra helps enterprises transform operations using Artificial Intelligence, Machine Learning, Data Engineering, and Cybernetic Systems.
+        </p>
+        <p style={{fontSize:15,color:T.muted,lineHeight:1.75,maxWidth:560,marginBottom:42}}>
+          We design intelligent enterprise platforms integrating automation, predictive analytics, and self-optimising infrastructure — enabling organisations to build autonomous digital ecosystems.
+        </p>
+      </Reveal>
 
-        <Reveal delay={340}>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr", gap:40}}>
-            {[["30+","Years Leadership"],["250+","Global Professionals"],["Fortune 500","Clients Served"],["40%+","Avg. Efficiency Gain"]].map(([n,l])=>(
-              <div key={l}>
-                <div style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:30,fontWeight:700,color:T.accent,lineHeight:1}}>{n}</div>
-                <div style={{fontSize:12,color:T.muted,marginTop:4}}>{l}</div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </div>
+      <Reveal delay={260}>
+        <div style={{display:"flex",flexWrap:"wrap",gap:14,marginBottom:56}}>
+          <button className="btn-p" onClick={()=>scrollTo("contact")}>Schedule a Strategy Call <ArrowRight size={17}/></button>
+          <button className="btn-s" onClick={()=>scrollTo("solutions")}>Explore Solutions <ChevronRight size={17}/></button>
+        </div>
+      </Reveal>
 
-      {/* RIGHT — animated orbital visual */}
-      <div className="hero-visual-wrap" style={{display:"flex",justifyContent:"center",alignItems:"flex-start",marginTop:40}}>
-        <HeroVisual/>
-      </div>
+      <Reveal delay={340}>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr", gap:40}}>
+          {[["30+","Years Leadership"],["250+","Global Professionals"],["Fortune 500","Clients Served"],["40%+","Avg. Efficiency Gain"]].map(([n,l])=>(
+            <div key={l}>
+              <div style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:30,fontWeight:700,color:T.accent,lineHeight:1}}>{n}</div>
+              <div style={{fontSize:12,color:T.muted,marginTop:4}}>{l}</div>
+            </div>
+          ))}
+        </div>
+      </Reveal>
     </div>
-  </section>
+
+    {/* RIGHT — animated orbital visual */}
+    <div className="hero-visual-wrap" style={{display:"flex",justifyContent:"center",alignItems:"flex-start",marginTop:40}}>
+      <HeroVisual/>
+    </div>
+  </div>
+</section>
 
   {/* ════ MARQUEE STRIP ════ */}
   <section style={{padding:"36px 0",background:T.bg1,borderTop:`1px solid ${T.border}`,borderBottom:`1px solid ${T.border}`,overflow:"hidden"}}>
@@ -1019,38 +1041,55 @@ export default function App(){
     </div>
   </section>
 
-  {/* ════ FOOTER ════ */}
-  <footer style={{background:T.foot,borderTop:"1px solid rgba(255,255,255,0.06)",padding:"56px 28px 28px"}}>
-    <div style={{maxWidth:1280,margin:"0 auto"}}>
-      <div className="foot-g" style={{display:"grid",gridTemplateColumns:"2fr 1fr 1fr 1fr",gap:44,marginBottom:44}}>
-        <div>
-          <div style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:21,fontWeight:700,letterSpacing:"-.02em"}}>
-            <img src="/voc_logo.png" alt="VOC Infra Logo" style={{width:200,height:35,verticalAlign:"middle",filter:"brightness(0) invert(1)"}}/>
-          </div>
-          {/* <div style={{fontSize:9.5,color:"#64748b",letterSpacing:".1em",marginBottom:14,marginTop:4}}>VECTORIZED OPERATIONS & CYBERNETICS</div> */}
-          <p style={{fontSize:13.5,color:"#64748b",lineHeight:1.75,maxWidth:260}}>Enterprise AI, Intelligent Infrastructure, and Cognitive Systems for the modern enterprise.</p>
+{/* ════ FOOTER ════ */}
+<style>{`
+  .foot-g {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 44px;
+    margin-bottom: 44px;
+  }
+  @media (max-width: 768px) {
+    .foot-g {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 32px !important;
+    }
+    .foot-g > div:first-child {
+      grid-column: 1 / -1;
+    }
+  }
+`}</style>
+
+<footer style={{background:T.foot,borderTop:"1px solid rgba(255,255,255,0.06)",padding:"56px 28px 28px"}}>
+  <div style={{maxWidth:1280,margin:"0 auto"}}>
+    <div className="foot-g">
+      <div>
+        <div style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:21,fontWeight:700,letterSpacing:"-.02em"}}>
+          <img src="/voc_logo.png" alt="VOC Infra Logo" style={{width:200,height:35,verticalAlign:"middle",filter:"brightness(0) invert(1)"}}/>
         </div>
-        {[
-          ["Solutions",["AI & ML Systems","Data Engineering","Cognitive Platforms","Infrastructure Automation","Cybernetic Systems"]],
-          ["Company",["About VOC Infra","Leadership","Industries","Case Studies","Partners"]],
-          ["Resources",["Technology Stack","Book Consultation"]],
-        ].map(([h,links])=>(
-          <div key={h}>
-            <h4 style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:11.5,fontWeight:700,color:"#475569",textTransform:"uppercase",letterSpacing:".1em",marginBottom:18}}>{h}</h4>
-            <ul style={{listStyle:"none",display:"flex",flexDirection:"column",gap:10}}>
-              {links.map(l=>(
-                <li key={l}><span style={{fontSize:13.5,color:"#64748b"}}>{l}</span></li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <p style={{fontSize:13.5,color:"#64748b",lineHeight:1.75,maxWidth:260}}>Enterprise AI, Intelligent Infrastructure, and Cognitive Systems for the modern enterprise.</p>
       </div>
-      <div style={{borderTop:"1px solid rgba(255,255,255,0.06)",paddingTop:24,display:"flex",justifyContent:"space-between",flexWrap:"wrap",gap:10}}>
-        <p style={{fontSize:12.5,color:"#637691"}}>© 2026 VOC Infra — Vectorized Operations & Cybernetics. All rights reserved.</p>
-        <p style={{fontSize:12.5,color:"#637691"}}>Hyderabad, India · <a href="mailto:info@vocinfra.com" style={{color:"inherit",textDecoration:"none"}}>info@vocinfra.com</a></p>
-      </div>
+      {[
+        ["Solutions",["AI & ML Systems","Data Engineering","Cognitive Platforms","Infrastructure Automation","Cybernetic Systems"]],
+        ["Company",["About VOC Infra","Leadership","Industries","Case Studies","Partners"]],
+        ["Resources",["Technology Stack","Book Consultation"]],
+      ].map(([h,links])=>(
+        <div key={h}>
+          <h4 style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:11.5,fontWeight:700,color:"#475569",textTransform:"uppercase",letterSpacing:".1em",marginBottom:18}}>{h}</h4>
+          <ul style={{listStyle:"none",display:"flex",flexDirection:"column",gap:10}}>
+            {links.map(l=>(
+              <li key={l}><span style={{fontSize:13.5,color:"#64748b"}}>{l}</span></li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
-  </footer>
+    <div style={{borderTop:"1px solid rgba(255,255,255,0.06)",paddingTop:24,display:"flex",justifyContent:"space-between",flexWrap:"wrap",gap:10}}>
+      <p style={{fontSize:12.5,color:"#637691"}}>© 2026 VOC Infra — Vectorized Operations & Cybernetics. All rights reserved.</p>
+      <p style={{fontSize:12.5,color:"#637691"}}>Hyderabad, India · <a href="mailto:info@vocinfra.com" style={{color:"inherit",textDecoration:"none"}}>info@vocinfra.com</a></p>
+    </div>
+  </div>
+</footer>
 
   </div>
   );
