@@ -893,59 +893,7 @@ export default function App(){
   </section>
 
   {/* ════ LEADERSHIP ════ */}
-  <section id="leadership" className="dot-bg" style={{padding:"116px 28px"}}>
-    <div style={{maxWidth:1280,margin:"0 auto"}}>
-      <div style={{textAlign:"center",marginBottom:68}}>
-        <Reveal><SL>Leadership</SL></Reveal>
-        <Reveal delay={70}>
-          <h2 style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:"clamp(28px,3.8vw,50px)",fontWeight:700,color:T.head,letterSpacing:"-.025em"}}>
-            Guided by <span>Industry Veterans</span>
-          </h2>
-          <p style={{fontSize:16,color:T.muted,marginTop:16,maxWidth:560,margin:"16px auto 0"}}>
-            Our leadership team brings decades of combined experience across AI, cloud infrastructure, data engineering, and enterprise transformation.
-          </p>
-        </Reveal>
-      </div>
 
-      <div className="team-grid" style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:24}}>
-        {TEAM.map((p,i)=>(
-          <Reveal key={p.initials} delay={80+i*90}>
-            <div className="card" style={{background:T.leaderBg,border:`1px solid ${T.borderAccent}`,borderRadius:18,padding:32,height:"100%",position:"relative",overflow:"hidden"}}>
-              <div style={{position:"absolute",top:0,left:0,right:0,height:3,background:`linear-gradient(90deg,${p.accent},transparent)`}}/>
-              <div className="leader-top" style={{display:"flex",alignItems:"flex-start",gap:18,marginBottom:20}}>
-                {/* avatar + badges column */}
-                <div className="leader-avatar-col" style={{flexShrink:0,display:"flex",flexDirection:"column",alignItems:"center"}}>
-                  <div className="leader-avatar-circle" style={{width:76,height:76,borderRadius:"50%",border:`2px solid ${p.border}`,overflow:"hidden",marginBottom:10,background:p.gradient,flexShrink:0}}>
-                    <img src={p.photo} alt={p.name} style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"top"}}/>
-                  </div>
-                  <div className="leader-badges" style={{display:"flex",flexDirection:"column",gap:5}}>
-                    {p.badges.map(b=>(
-                      <div key={b} style={{padding:"3px 10px",background:`${p.accent}10`,border:`1px solid ${p.accent}25`,borderRadius:100,fontSize:9.5,color:p.accent,fontWeight:700,textAlign:"center",whiteSpace:"nowrap",letterSpacing:".04em"}}>{b}</div>
-                    ))}
-                  </div>
-                </div>
-                {/* name + role + bio */}
-                <div className="leader-text-col" style={{flex:1,minWidth:0}}>
-                  <h3 style={{fontFamily:"'Space Grotesk',sans-serif",fontSize:17,fontWeight:700,color:T.head,lineHeight:1.3,marginBottom:4}}>{p.name}</h3>
-                  <p style={{fontSize:12,color:p.accent,fontWeight:600,letterSpacing:".04em",marginBottom:10,lineHeight:1.4}}>{p.role}</p>
-                  <p style={{fontSize:13,color:T.sub,lineHeight:1.7}}>{p.bio}</p>
-                </div>
-              </div>
-              <div style={{height:1,background:T.sectionDivider,margin:"0 0 18px"}}/>
-              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"9px 12px"}}>
-                {p.highlights.map(item=>(
-                  <div key={item} style={{display:"flex",alignItems:"flex-start",gap:7}}>
-                    <CheckCircle size={11} style={{color:p.accent,flexShrink:0,marginTop:3}}/>
-                    <span style={{fontSize:12,color:T.muted,lineHeight:1.5}}>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </div>
-  </section>
 
   {/* ════ PARTNERS ════ */}
   <section style={{padding:"64px 28px",background:T.bg1,borderTop:`1px solid ${T.sectionDivider}`}}>
