@@ -8,7 +8,7 @@ import {
 
 /* ══════════════════════ STATIC DATA ══════════════════════ */
 
-const NAV_LINKS = ["Home","About","Solutions","Technology","Industries","Case Studies","Leadership","Contact"];
+const NAV_LINKS = ["Home","About","Solutions","Technology","Industries","Case Studies","Contact"];
 
 const SOLUTIONS = [
   { icon:Brain,    color:"#0099c6", title:"AI & Machine Learning Systems",           desc:"Intelligent automation and predictive systems that transform enterprise decision-making.",         items:["Predictive analytics platforms","Intelligent workflow automation","AI-based decision engines","Computer vision & NLP solutions"] },
@@ -1019,7 +1019,7 @@ export default function App(){
       </div>
       {[
         ["Solutions",["AI & ML Systems","Data Engineering","Cognitive Platforms","Infrastructure Automation","Cybernetic Systems"]],
-        ["Company",["About VOC Infra","Leadership","Industries","Case Studies","Partners"]],
+        ["Company",["About VOC Infra","Industries","Case Studies","Partners"]],
         ["Resources",["Technology Stack","Book Consultation"]],
       ].map(([h,links])=>(
         <div key={h}>
